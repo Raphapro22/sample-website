@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>contact</title>
+    <link rel="stylesheet" href="contactstyles.css">
+</head>
+<body>
+<div class="container">
+    <div class="row1">
+        <div class="text-center">
+            <img src="assets/images/logo.png" alt="signin" class="img1">
+            <p class="font-20 semi-font main-text-color mt-4 mb-4 mb-lg-5">Sign In Hexashop</p>
+            <form id="signInForm">
+                <div class="form-group"> 
+                    <div class="input-icon">
+                        <span class="hexashop-name"></span>
+                        <input type="text" id="nameInput" class="register-input"  placeholder="Name"> 
+                    </div>
+                </div>
+                <div class="form-group"> 
+                    <div class="input-icon">
+                        <span class="hexashop-email"></span>
+                        <input type="email" id="emailInput" class="register-input"  placeholder="Email"> 
+                    </div>
+                </div>
+                <div class="form-group"> 
+                    <div class="input-icon">
+                        <span class="hexashop-password"></span>
+                        <input type="number" id="phoneInput" class="register-input" placeholder="Phone number">
+                    </div>
+                </div> 
+                <button type="submit" class="btn btn-block rounded-0 main-hover-background-color second-background-color font-16 semi-font py-3">Sign in</button>
+            </form>
+            <div id="userInfoTable">
+                <h2>User Information:</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userInfoTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const signInForm = document.getElementById('signInForm');
+    const userInfoTableBody = document.getElementById('userInfoTableBody');
+    let userInfos = []; // Array to store user information
+
+    signInForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById('nameInput').value;
+        const email = document.getElementById('emailInput').value;
+        const phone = document.getElementById('phoneInput').value;
+
+        // Add user info to the array
+        userInfos.push({ name: name, email: email, phone: phone });
+
+        // Update the table
+        updateUserInfoTable();
+
+        // Clear input fields
+        document.getElementById('nameInput').value = "";
+        document.getElementById('emailInput').value = "";
+        document.getElementById('phoneInput').value = "";
+    });
+
+    function updateUserInfoTable() {
+        userInfoTableBody.innerHTML = ''; // Clear existing table rows
+
+        userInfos.forEach(userInfo => {
+            const row = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            const emailCell = document.createElement('td');
+            const phoneCell = document.createElement('td');
+
+            nameCell.textContent = userInfo.name;
+            emailCell.textContent = userInfo.email;
+            phoneCell.textContent = userInfo.phone;
+
+            row.appendChild(nameCell);
+            row.appendChild(emailCell);
+            row.appendChild(phoneCell);
+
+            userInfoTableBody.appendChild(row);
+        });
+    }
+</script>
+
+</body>
+</html>
