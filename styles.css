@@ -686,7 +686,7 @@ banner
   color: #fff;
   font-style: italic;
 }
-
+/*
 .main-banner .right-content .right-first-image .thumb .hover-content {
   position: absolute;
   top: 15px;
@@ -698,7 +698,7 @@ banner
   opacity: 0;
   visibility: hidden;
   transition: all 0.5s;
-}
+}   
 
 .main-banner .right-content .right-first-image .thumb:hover .hover-content {
   opacity: 1;
@@ -738,6 +738,7 @@ Men
   padding-top: 90px;
   padding-bottom: 90px;
   border-bottom: 3px dotted #eee;
+  flex-direction: row;
 }
 
 #men .section-heading {
