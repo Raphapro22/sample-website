@@ -32,6 +32,11 @@ signInForm.addEventListener('submit', (event) => {
 });
 
 function createUserInfoTable() {
+    
+    const title = document.createElement('h2');
+    title.textContent = "Users Information";
+
+   
     const table = document.createElement('table');
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
@@ -71,7 +76,10 @@ function createUserInfoTable() {
     table.appendChild(thead);
     table.appendChild(tbody);
 
+   
     userInfoTable.innerHTML = ''; 
+    userInfoTable.appendChild(title);
+    userInfoTable.appendChild(document.createElement('br'));
     userInfoTable.appendChild(table);
 
     userInfoTable.style.display = 'block'; 
